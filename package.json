@@ -1,0 +1,25 @@
+{
+  "name": "kdb-viewer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "view-manager.js",
+  "scripts": {
+    "start": "budo -H 0.0.0.0 example.js --live",
+    "build": "browserify exports.js | terser --compress --output kdb-viewer.min.js"
+  },
+  "keywords": [],
+  "author": "Rye Terrell",
+  "license": "Unlicense",
+  "devDependencies": {
+    "budo": "^11.6.2",
+    "terser": "^4.1.2"
+  },
+  "dependencies": {
+    "@atomistics/elements": "^1.0.0",
+    "@atomistics/xyz": "^1.0.0",
+    "gl-matrix": "^3.0.0",
+    "icosphere": "^1.0.0",
+    "normals": "^1.1.0",
+    "regl": "^1.3.11"
+  }
+}
