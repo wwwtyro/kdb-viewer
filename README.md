@@ -21,15 +21,7 @@ Copy the `kdb-viewer.min.js` script onto your server and insert the following in
   <script src="kdb-viewer.min.js"></script>
 ```
 
-### Developing
-
-* Install [Node.js](https://nodejs.org/en/). I recommend [nvm](https://github.com/nvm-sh/nvm) for this.
-* Clone this repo.
-* Enter the repo and execute `npm i` to install the dependencies.
-* Run `npm start` and point your browser to http://localhost:9966.
-* Edit the source files (from higher-to-lower levels of abstraction: `example.js`, `view-manager.js`, and `viewer.js`).
-* Save your changes. The browser should automatically reload.
-* Run `npm run build` to rebuild `kdb-viewer.min.js`.
+This will add the `ViewManager` object to the global namespace, ready to use.
 
 ### API
 
@@ -62,3 +54,13 @@ Calling the `removeView` function will remove the canvas from its container and 
 ```js
 manager.removeView(view);
 ```
+
+### Contributing
+
+* Install [Node.js](https://nodejs.org/en/). I recommend [nvm](https://github.com/nvm-sh/nvm) for this.
+* Clone this repo.
+* Enter the repo and execute `npm i` to install the dependencies.
+* Run `npm start` and point your browser to http://localhost:9966.
+* Edit the source files (from higher-to-lower levels of abstraction: `example.js`, `view-manager.js`, and `viewer.js`).
+* Save your changes. The browser should automatically reload.
+* Run `npm run build` to rebuild `kdb-viewer.min.js`.
