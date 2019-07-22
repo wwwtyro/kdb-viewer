@@ -6,7 +6,7 @@ A simple webgl xyz file renderer for the [KDB](http://theory.cm.utexas.edu/KDB/)
 
 See the included `example.html` file for an example.
 
-[Click here](https://wwwtyro.github.io/kdb-viewer/example.html) to see the example live.
+[Click here](https://wwwtyro.github.io/kdb-viewer/example) to see the example live.
 
 ### Interaction
 
