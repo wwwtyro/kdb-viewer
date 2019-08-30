@@ -27,6 +27,7 @@ module.exports = function Viewer(sphereResolution = 3) {
 
   let model = mat4.create();
   let view = mat4.lookAt([], [0, 0, 16], [0, 0, 0], [0, 1, 0]);
+  let radiusScale = 1;
 
   let ortho = {
     left: -10,
@@ -42,12 +43,13 @@ module.exports = function Viewer(sphereResolution = 3) {
       precision highp float;
       uniform mat4 model, view, projection;
       uniform mat4 rotation;
+      uniform float radiusScale;
       attribute vec3 position, normal;
       attribute vec3 offset, color;
       attribute float radius;
       varying vec3 vNormal, vColor;
       void main() {
-        gl_Position = projection * view * model * vec4(position * 1.5 * radius + offset, 1);
+        gl_Position = projection * view * model * vec4(position * radiusScale * radius + offset, 1);
         vNormal = vec3(rotation * vec4(normal, 1));
         vColor = color;
       }`,
@@ -78,7 +80,8 @@ module.exports = function Viewer(sphereResolution = 3) {
       model: regl.prop("model"),
       view: regl.prop("view"),
       projection: regl.prop("projection"),
-      rotation: regl.prop("rotation")
+      rotation: regl.prop("rotation"),
+      radiusScale: regl.prop("radiusScale")
     },
     viewport: regl.prop("viewport"),
     elements: sphere.cells,
@@ -128,6 +131,10 @@ module.exports = function Viewer(sphereResolution = 3) {
     };
   }
 
+  function setRadiusScale(scale) {
+    radiusScale = scale;
+  }
+
   function render() {
     let projection = mat4.ortho(
       [],
@@ -147,11 +154,12 @@ module.exports = function Viewer(sphereResolution = 3) {
       offsets: bOffsets,
       colors: bColors,
       radii: bRadii,
-      rotation: rotation,
-      model: model,
-      view: view,
-      projection: projection,
-      count: count,
+      rotation,
+      radiusScale,
+      model,
+      view,
+      projection,
+      count,
       viewport: { x: 0, y: 0, width: canvas.width, height: canvas.height }
     });
   }
@@ -171,6 +179,7 @@ module.exports = function Viewer(sphereResolution = 3) {
     setModel,
     setView,
     setOrtho,
+    setRadiusScale,
     render,
     renderTo
   };

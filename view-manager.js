@@ -6,13 +6,14 @@ module.exports = function ViewManager() {
   const views = [];
   const viewer = Viewer();
 
-  function addView(xyzString) {
+  function addView(xyzString, radiusScale = 1) {
     const view = {};
     view.data = xyz(xyzString)[0];
     view.bounds = getBounds(view.data.positions.data);
     view.centroid = getCentroid(view.bounds);
     view.diagonal = getDiagonalLength(view.bounds);
     view.zoom = 1.0;
+    view.radiusScale = radiusScale;
     view.mouse = {
       down: false,
       x: null,
@@ -112,6 +113,7 @@ module.exports = function ViewManager() {
     viewer.setModel(model);
     viewer.setPositions(view.data.positions);
     viewer.setLabels(view.data.numbers);
+    viewer.setRadiusScale(view.radiusScale);
     viewer.renderTo(view.canvas);
   }
 

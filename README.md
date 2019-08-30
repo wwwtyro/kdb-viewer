@@ -31,7 +31,7 @@ Create a new `ViewManager` instance:
 const manager = ViewManager();
 ```
 
-Pass an xyz file as a string to the `addView` function to create a new view canvas:
+Pass an xyz file as a string and a radius scale parameter to the `addView` function to create a new view canvas:
 
 ```js
 const caffeine = `24
@@ -39,7 +39,7 @@ Caffeine
 H      -3.3804130    -1.1272367     0.5733036
 N       0.9668296    -1.0737425    -0.8198227...`
 
-const view = manager.addView(caffeine);
+const view = manager.addView(caffeine, 1.0);
 ```
 
 The resulting `view` object is a canvas that will respond to mouse events and render your data. Append it to your document

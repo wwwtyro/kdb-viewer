@@ -29,4 +29,4 @@ H      -1.2074498     2.7537592     1.7203047`;
 
 const manager = ViewManager();
 
-document.body.appendChild(manager.addView(caffeine));
+document.body.appendChild(manager.addView(caffeine, 1.5));
