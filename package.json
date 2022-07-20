@@ -12,7 +12,7 @@
   "license": "Unlicense",
   "devDependencies": {
     "budo": "^11.6.2",
-    "terser": "^4.1.2"
+    "terser": "^4.8.1"
   },
   "dependencies": {
     "@atomistics/elements": "^1.0.0",
